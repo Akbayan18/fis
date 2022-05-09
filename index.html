@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarKit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images\logo.png" type="images/png">
+    <link rel="stylesheet" href="css/index.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</head>
+<body class="body_hide">
+
+    <script>
+  setTimeout(function(){
+  document.body.classList.add('body_visible');
+}, 300);
+</script>
+
+
+
+    <div class="gradient">
+<header class="header">
+<div class="header__logo"><img src="images\logo.png"></div>
+<div class="logo__title"><b>Car Service Center &#128104;&#8205;&#128295;&#128663; </b></div> 
+    <button class="header__admin"><a href="crud.html">Admin</a></button>
+    <div class="header__authWrapper">
+        <button class="header__log-in"><a href="login.html">Log in</a></button>
+        <button class="header__register"><a href="registr.html">Register</a></button>
+    </div>
+    <button class="header__log-out">Log out</button>
+</header>
+ <hr>
+
+
+
+<section class="home" id="home">
+
+    <div class="image">
+        <img src="https://thekievtimes.org/wp-content/uploads/2020/11/b6bcb56699d10b576d95b3c1a0999ae8.jpeg" width="50px" alt="">
+    </div>
+
+    <div class="content">
+        <span>Quickly and efficiently</span>
+        <h3>your daily need products</h3>
+        
+    </div>
+    <button class="bal"><a href="count.html"><h1>Count more</h1></a></button>
+ <button class="baa"><a href="http://localhost/sample_register.html"><h1>To order </h1></a></button>
+</section>
+
+
+<br><br> <br>
+
+    <div id="header"></div>
+    <div id="products"></div>
+    <div id="shopping"></div>
+
+<h1 class="akbayan">Details</h1>
+<h1 class="akba">Products for the promotion</h1>
+
+<h1 class="akb">Services</h1>
+ <button class="ba"><a href="search.html"><h1>Read more...</h1></a></button>
+
+
+    <!-- Constants and Utils -->
+    <script src="constants/catalog.js"></script>
+    <script src="constants/root.js"></script>
+    <script src="utils/localStorageUtil.js"></script>
+
+    <!-- Header -->
+    <script src="components/Header/Header.js"></script>
+    <link rel="stylesheet" href="components/Header/Header.css">
+
+    <!-- Products -->
+    <script src="components/Products/Products.js"></script>
+    <link rel="stylesheet" href="components/Products/Products.css">
+
+    <!-- Shopping -->
+    <script src="components/Shopping/Shopping.js"></script>
+    <link rel="stylesheet" href="components/Shopping/Shopping.css">
+
+<script type="text/javascript">
+     $('.header__log-out').click(function() {
+            localStorage.setItem('isLogged', false);
+            localStorage.setItem('isAdmin', false);
+             window.location.reload();
+        });
+</script>
+<div class="aktau">
+
+<footer class="footer">
+    <div class="footer__box">
+        <div class="box__title">Contact</div>
+        <div class="box__text">
+           <span>Kozhabay Miras - <img src="images\icons8-телефоны-запрещены.gif"  title="Не ЗВОНИТЬ!" style="width: 23px; height: 23px; "> 8 778 710 52 18</span><br></div>
+          <div class="box__icon">
+            <a href="https://vk.com/marganer" target="_blank" title="VK!"><img  src="images\icons8-vk-в-круге-32.svg"></a>
+            <a href="https://www.instagram.com/kozhabay000/" target="_blank" title="Instagram!"><img src="images\icons8-instagram.svg">
+   </a>         <a href="https://chat.whatsapp.com/FGBx4XJezMCKCdDVP2JX80" target="_blank" title="Whatsapp!"><img src="images\icons8-whatsapp.svg">
+    </a>        <a href="https://github.com/Akbayanweb" target="_blank" title="Github!"><img src="images\icons8-github.svg">
+      </a>      <a href="" target="_blank" title="Summary!"><img src="images\icons8-portfolium.svg">
+  </a>      </div>
+        <div class="box__text">
+           <span>Baibalaeva Akbayan - <img src="images\icons8-телефоны-запрещены.gif" title="Не ЗВОНИТЬ!" style="width: 23px; height: 23px;"> 8 778 907 67 07 </span></div>
+        <div class="box__icon">
+            <a href="https://vk.com/akbayaaan" target="_blank" title="VK!"><img src="images\icons8-vk-в-круге-32.svg"></a>
+            <a href="https://instagram.com/baibalayeva_?igshid=he8ixgtlgv6j" target="_blank" title="Instagram!"><img src="images\icons8-instagram.svg">
+   </a>         <a href="https://chat.whatsapp.com/FGBx4XJezMCKCdDVP2JX80" target="_blank" title="Whatsapp!"><img src="images\icons8-whatsapp.svg">
+    </a>        <a href="https://github.com/Akbayanweb" target="_blank" title="Github!"><img src="images\icons8-github.svg">
+      </a>      <a href="" target="_blank" title="Summary!"><img src="images\icons8-portfolium.svg">
+    </a>    </div>
+        <div class="box__summary">
+         <div id="map"></div></div>
+             <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    </div>
+ </footer>
+</div>
+
+<script>
+    var map;
+
+DG.then(function () {
+    map = DG.map('map', {
+        center: [43.235287, 76.9093622],
+        zoom: 15
+    });
+    
+    DG.marker([43.235287, 76.9093622]).addTo(map).bindPopup('html-контент');
+});
+
+</script>
+</div>
+
+<script>
+    $(".nav__grid-item a").on("click", function(e) {
+    var div = $(this).siblings(".navLinks").toggle();
+    $(".navLinks").not(div).hide();
+    e.preventDefault();
+});
+
+
+
+    $.fn.animate_Text = function() {
+  var string = this.text();
+  return this.each(function(){
+   var $this = $(this);
+   $this.html(string.replace(/./g, '<span class="new">$&</span>'));
+   $this.find('span.new').each(function(i, el){
+    setTimeout(function(){ $(el).addClass('div_opacity'); }, 100 * i);
+   });
+  });
+ };
+ $('#article__arrow__text').show();
+ $('#article__arrow__text').animate_Text();
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+      $(function () {
+        var isLogged = localStorage.getItem("isLogged"); 
+        var isAdmin = localStorage.getItem("isAdmin"); 
+        if(isLogged == 'true') {
+            $('.header__authWrapper').css('display', 'none');
+            $('.header__log-out').css('display', 'block');
+        } else {
+             $('.header__authWrapper').css('display', 'block');
+            $('.header__log-out').css('display', 'none');
+        }
+        if(isAdmin == 'true') {
+             $('.header__admin').css('display', 'block');
+        }
+   });
+</script>
+<script type="text/javascript">
+     $('.header__log-out').click(function() {
+            localStorage.setItem('isLogged', false);
+            localStorage.setItem('isAdmin', false);
+             window.location.reload();
+        });
+</script>
+<script>
+    $(".nav__grid-item a").on("click", function(e) {
+    var div = $(this).siblings(".navLinks").toggle();
+    $(".navLinks").not(div).hide();
+    e.preventDefault();
+});
+
+
+
+    $.fn.animate_Text = function() {
+  var string = this.text();
+  return this.each(function(){
+   var $this = $(this);
+   $this.html(string.replace(/./g, '<span class="new">$&</span>'));
+   $this.find('span.new').each(function(i, el){
+    setTimeout(function(){ $(el).addClass('div_opacity'); }, 100 * i);
+   });
+  });
+ };
+ $('#article__arrow__text').show();
+ $('#article__arrow__text').animate_Text();
+</script>
+
+<div class="balausa">
+
+<button onclick="sortList()">Sort books by date</button>
+
+<div class="main__book" style="display: flex">
+<ul id="id01">
+  <div id="elem0">
+
+  <li><p><embed src="ustrojstvo-avtomobilja-prosto-i-ponjatno.pdf" width="200" height="300" /><button onclick="delNode(this)">Delete</button><p></li> </div>
+    <div id="elem1">
+  <li><p><embed src="60192386.a4.pdf" width="200" height="300" />  <button onclick="delNode(this)">Delete</button><p></li></div>
+  <div id="elem2">
+    <li><p><embed src="60131954.a4.pdf" width="200" height="300"/> <button onclick="delNode(this)">Delete</button><p></li></div>
+       <div id="elem3">
+  <li><p><embed src="60135210.a4.pdf" width="200" height="300"/><button onclick="delNode(this)">Delete</button></p></li>
+</div>
+<div id="elem4">
+  <li><p><embed src="60130994.a4.pdf" width="200" height="300"/><button onclick="delNode(this)">Delete</button></p></li>
+ </div>
+</ul>
+
+<script>
+function sortList() {
+  var list, i, switching, b, shouldSwitch;
+  list = document.getElementById("id01");
+  switching = true;
+  while (switching) { 
+    switching = false;
+    b = list.getElementsByTagName("LI");
+    // Цикл по всем элементам списка:
+    for (i = 0; i < (b.length - 1); i++) { 
+      shouldSwitch = false;
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {   
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+
+
+    <script >function delNode(el){el.parentNode.parentNode.remove()}</script>
+
+
+
+</div> </div>
+    
+</body>
+</html>
